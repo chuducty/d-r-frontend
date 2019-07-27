@@ -6,4 +6,4 @@ before_install:
   - docker build -t chuducty/d-r-frontend -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true huducty/d-r-frontend npm run test
+  - docker run -e CI=true chuducty/d-r-frontend npm run test
