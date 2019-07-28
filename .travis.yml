@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true chuducty/d-r-frontend npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "d-r-frontend"
+  env: "DRFrontend-env"
+  bucket_name: "elasticbeanstalk-us-east-1-004834655703"
+  bucket_path: "d-r-frontend"
+  on:
+    branch: master
+  access_key_id: $AWS_BEANSTALK_ACCESS_KEY
+  scret_access_key:
+    secure: "AWS_BEANSTALK_SECRET_KEY"
